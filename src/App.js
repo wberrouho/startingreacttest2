@@ -2,17 +2,6 @@ import './App.css';
 import pokemon from './pokemon.json';
 import PropTypes from 'prop-types';
 
-// const PokemonRow = ({pokemon}) => (
-//   <tr>
-//     <td>
-//       {pokemon.name.english}
-//     </td>
-//     <td>
-//       {pokemon.type.join(',')}
-//     </td>
-//   </tr>
-// );
-
 const PokemonRow = ({pokemon}) =>(
     <tr>
     <td>
@@ -24,7 +13,15 @@ const PokemonRow = ({pokemon}) =>(
   </tr>
 );
 
-
+PokemonRow.PropTypes ={
+pokemon: PropTypes.shape({
+  name: PropTypes.shape({
+    english: PropTypes.string,
+  }),
+  type: PropTypes.arrayOf(PropTypes.string)
+}),
+onSelect : PropTypes.func
+};
 
 function App() {
   return (
